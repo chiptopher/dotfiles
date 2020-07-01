@@ -17,6 +17,7 @@ Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
