@@ -35,6 +35,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 :set backspace=indent,eol,start
+set incsearch "search incrementally
+set hls "highlight matches in search
 
 "================ Keybindings ================
 nmap <F6> :NERDTreeToggle<CR>
@@ -42,7 +44,11 @@ nmap <F6> :NERDTreeToggle<CR>
 :noremap <leader>r :LspRename<CR>
 :noremap <leader>dd :LspDocumentDiagnostics<CR>
 :noremap <leader>b :LspDefinition<CR>
-
+"
+"================ Text Macros ================
+:ia sout System.out.println();
+:ia clog console.log();
+"
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
