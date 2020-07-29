@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -48,19 +49,22 @@ noremap <leader><enter> :LspCodeAction<CR>
 noremap <leader>r :LspRename<CR>
 noremap <leader>dd :LspDocumentDiagnostics<CR>
 noremap <leader>b :LspDefinition<CR>
-noremap <leader>V :rightbelow LspDefinition<CR>
-noremap <leader>B :rightbelow vertical LspDefinition<CR>
+noremap <leader>B :rightbelow LspDefinition<CR>
+noremap <leader>V :rightbelow vertical LspDefinition<CR>
 
 autocmd FileType * map <buffer> <leader>l :LspDocumentFormat<cr>
 autocmd FileType typescript map <buffer> <leader>l :Prettier<cr>
 autocmd FileType typescriptreact map <buffer> <leader>l :Prettier<cr>
 autocmd FileType javascript map <buffer> <leader>l :Prettier<cr>
 autocmd FileType json map <buffer> <leader>l :Prettier<cr>
+autocmd FileType sass map <buffer> <leader>l :Prettier<cr>
+autocmd FileType scss map <buffer> <leader>l :Prettier<cr>
 
 "================ Text Macros ================
 :ia sout System.out.println();
 :ia clog console.log();
 :ia Assertions; import static org.assertj.core.api.Assertions.*;
+:ia Mockio; import static org.mockito.Mockito.*;
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
