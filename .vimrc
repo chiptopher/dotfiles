@@ -19,6 +19,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'schickling/vim-bufonly'
 
 call plug#end()
 
@@ -48,6 +49,7 @@ nmap <F6> :NERDTreeToggle<CR>
 noremap <leader><enter> :LspCodeAction<CR>
 noremap <leader>r :LspRename<CR>
 noremap <leader>dd :LspDocumentDiagnostics<CR>
+noremap <leader>ww :BufOnly<CR>
 noremap <leader>b :LspDefinition<CR>
 noremap <leader>B :rightbelow LspDefinition<CR>
 noremap <leader>V :rightbelow vertical LspDefinition<CR>
