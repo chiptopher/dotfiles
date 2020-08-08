@@ -29,6 +29,7 @@ let test#java#runner = 'gradletest' "Configure vim-test to use gralde for java t
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
 let g:pymode_rope_autoimport=1 "Enable rope commands from python-mode
+highlight link JavaIdentifier NONE
 
 "============= Editor Configuration ==============
 :set number
@@ -77,3 +78,5 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 set cursorline
 
 :hi CursorLine   cterm=NONE ctermbg=black
+
+:highlight LineNr ctermfg=white "Make line numbers white
