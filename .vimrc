@@ -28,9 +28,8 @@ call plug#end()
 "
 "============= Snippets Configuration ==============
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    
 set runtimepath+=~/.vim/my-snippets/
 
 autocmd BufNewFile,BufRead *.gs set ft=javascript
@@ -78,6 +77,7 @@ autocmd FileType javascript map <buffer> <leader>l :Prettier<cr>
 autocmd FileType json map <buffer> <leader>l :Prettier<cr>
 autocmd FileType sass map <buffer> <leader>l :Prettier<cr>
 autocmd FileType scss map <buffer> <leader>l :Prettier<cr>
+autocmd FileType css map <buffer> <leader>l :Prettier<cr>
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
