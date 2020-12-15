@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'natebosch/vim-lsc'
 Plug 'vim-test/vim-test'
 Plug 'prabirshrestha/vim-lsp'
@@ -65,7 +66,8 @@ noremap <leader>b :LspDefinition<CR>
 noremap <leader>B :rightbelow LspDefinition<CR>
 noremap <leader>V :rightbelow vertical LspDefinition<CR>
 noremap <leader>cf :noh<CR>
-noremap <leader>f :F<CR>
+noremap <leader>f :Files<CR>
+noremap <leader>F :Rg<CR>
 noremap <leader>tn :TestNearest<CR>
 noremap <leader>tf :TestFile<CR>
 
@@ -90,3 +92,6 @@ set cursorline
 :hi CursorLine   cterm=NONE ctermbg=black
 
 :highlight LineNr ctermfg=white "Make line numbers white
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
