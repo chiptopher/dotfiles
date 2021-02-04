@@ -24,13 +24,14 @@ Plug 'schickling/vim-bufonly'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
+Plug 'w0rp/ale'
 
 call plug#end()
 "
 "============= Snippets Configuration ==============
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"    
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 set runtimepath+=~/.vim/my-snippets/
 
 autocmd BufNewFile,BufRead *.gs set ft=javascript
@@ -72,14 +73,25 @@ noremap <leader>tn :TestNearest<CR>
 noremap <leader>tf :TestFile<CR>
 
 autocmd FileType * map <buffer> <leader>l :LspDocumentFormat<cr>
-autocmd FileType typescript map <buffer> <leader>l :Prettier<cr>
-autocmd FileType typescriptreact map <buffer> <leader>l :Prettier<cr>
-autocmd FileType grads map <buffer> <leader>l :Prettier<cr>
-autocmd FileType javascript map <buffer> <leader>l :Prettier<cr>
+autocmd FileType typescript map <buffer> <leader>l :ALEFix<cr>
+autocmd FileType typescriptreact map <buffer> <leader>l :ALEFix<cr>
+autocmd FileType grads map <buffer> <leader>l :ALEFix<cr>
+autocmd FileType javascript map <buffer> <leader>l :ALEFix<cr>
 autocmd FileType json map <buffer> <leader>l :Prettier<cr>
 autocmd FileType sass map <buffer> <leader>l :Prettier<cr>
 autocmd FileType scss map <buffer> <leader>l :Prettier<cr>
 autocmd FileType css map <buffer> <leader>l :Prettier<cr>
+
+"============= Ale Lintint Settings ==============
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'typescriptreact': ['eslint'],
+\}
+
+let g:ale_fix_on_save = 1
+let g:ale_set_highlights = 0
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
