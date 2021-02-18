@@ -55,6 +55,7 @@ set expandtab
 set incsearch "search incrementally
 set hls "highlight matches in search
 set foldlevel=99
+set ignorecase
 
 "================ Keybindings ================
 map <leader>q :NERDTreeFind<cr>
@@ -72,7 +73,7 @@ noremap <leader>F :Rg<CR>
 noremap <leader>tn :TestNearest<CR>
 noremap <leader>tf :TestFile<CR>
 
-autocmd FileType * map <buffer> <leader>l :LspDocumentFormat<cr>
+autocmd FileType * map <buffer> <leader>l :ALEFix<cr>
 autocmd FileType typescript map <buffer> <leader>l :ALEFix<cr>
 autocmd FileType typescriptreact map <buffer> <leader>l :ALEFix<cr>
 autocmd FileType grads map <buffer> <leader>l :ALEFix<cr>
@@ -84,14 +85,23 @@ autocmd FileType css map <buffer> <leader>l :Prettier<cr>
 
 "============= Ale Lintint Settings ==============
 " In ~/.vim/vimrc, or somewhere similar.
+
+let g:ale_linters = {
+\   'python': ['pylint'],
+\}
+
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'typescriptreact': ['eslint'],
+\   'python': ['isort'],
 \}
 
 let g:ale_fix_on_save = 1
 let g:ale_set_highlights = 0
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
