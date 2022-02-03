@@ -3,28 +3,34 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'natebosch/vim-lsc'
-Plug 'vim-test/vim-test'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'preservim/nerdtree'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prettier/vim-prettier'
-Plug 'Shougo/deoplete.nvim'
-Plug 'lighttiger2505/deoplete-vim-lsp'
 Plug 'liuchengxu/space-vim-dark'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'schickling/vim-bufonly'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'jparise/vim-graphql'
-Plug 'w0rp/ale'
+Plug 'HendrikPetertje/vimify'
+
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 "
@@ -36,12 +42,9 @@ set runtimepath+=~/.vim/my-snippets/
 
 autocmd BufNewFile,BufRead *.gs set ft=javascript
 "============= Plugin Configuration ==============
-let test#java#runner = 'gradletest' "Configure vim-test to use gralde for java testing
 colorscheme space-vim-dark
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
-let g:pymode_rope_autoimport=1 "Enable rope commands from python-mode
-highlight link JavaIdentifier NONE
 
 "============= Editor Configuration ==============
 :set number
@@ -55,53 +58,24 @@ set expandtab
 set incsearch "search incrementally
 set hls "highlight matches in search
 set foldlevel=99
+set foldmethod=indent
 set ignorecase
 
 "================ Keybindings ================
 map <leader>q :NERDTreeFind<cr>
 nmap <F6> :NERDTreeToggle<CR>
-noremap <leader><enter> :LspCodeAction<CR>
-noremap <leader>r :LspRename<CR>
-noremap <leader>dd :LspDocumentDiagnostics<CR>
+
 noremap <leader>ww :BufOnly<CR>
-noremap <leader>b :LspDefinition<CR>
-noremap <leader>B :rightbelow LspDefinition<CR>
-noremap <leader>V :rightbelow vertical LspDefinition<CR>
 noremap <leader>cf :noh<CR>
-noremap <leader>f :Files<CR>
+noremap <leader>f :GFiles<CR>
 noremap <leader>F :Rg<CR>
-noremap <leader>tn :TestNearest<CR>
-noremap <leader>tf :TestFile<CR>
+noremap <leader>g za<CR>
+noremap <leader>b :call CocActionAsync('jumpDefinition')<CR>
+noremap <leader><enter> :CocAction<CR>
+nmap <leader>r <Plug>(coc-rename)
 
-autocmd FileType * map <buffer> <leader>l :ALEFix<cr>
-autocmd FileType typescript map <buffer> <leader>l :ALEFix<cr>
-autocmd FileType typescriptreact map <buffer> <leader>l :ALEFix<cr>
-autocmd FileType grads map <buffer> <leader>l :ALEFix<cr>
-autocmd FileType javascript map <buffer> <leader>l :ALEFix<cr>
-autocmd FileType json map <buffer> <leader>l :Prettier<cr>
-autocmd FileType sass map <buffer> <leader>l :Prettier<cr>
-autocmd FileType scss map <buffer> <leader>l :Prettier<cr>
-autocmd FileType css map <buffer> <leader>l :Prettier<cr>
-
-"============= Ale Lintint Settings ==============
-" In ~/.vim/vimrc, or somewhere similar.
-
-let g:ale_linters = {
-\   'python': ['pylint'],
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
-\   'typescriptreact': ['eslint'],
-\   'python': ['isort'],
-\}
-
-let g:ale_fix_on_save = 1
-let g:ale_set_highlights = 0
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+autocmd FileType c map <buffer> <leader>l :ClangFormat<cr>
+autocmd FileType cpp map <buffer> <leader>l :ClangFormat<cr>
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
