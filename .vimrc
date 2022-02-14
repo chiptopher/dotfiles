@@ -73,6 +73,7 @@ noremap <leader>g za<CR>
 noremap <leader>b :call CocActionAsync('jumpDefinition')<CR>
 noremap <leader><enter> :CocAction<CR>
 nmap <leader>r <Plug>(coc-rename)
+nmap <leader>rf <Plug>(coc-references)
 
 autocmd FileType c map <buffer> <leader>l :ClangFormat<cr>
 autocmd FileType cpp map <buffer> <leader>l :ClangFormat<cr>
