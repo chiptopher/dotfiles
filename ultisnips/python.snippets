@@ -1,0 +1,38 @@
+snippet tcls ""
+from unittest import TestCase
+from unittest.mock import Mock, patch
+
+class ${1:Name}(TestCase):
+    pass
+
+endsnippet
+
+snippet mock
+${1:Name} = Mock()
+endsnippet
+
+snippet init ""
+    def __init__(self):
+        pass
+endsnippet
+
+snippet p "" i
+print(${1:Message})
+endsnippet
+
+snippet cls ""
+class ${1:Name}:
+
+	def __init__(self):
+		pass
+
+endsnippet
+
+snippet L ""
+from typing import List
+endsnippet
+
+snippet tm ""
+def test_${1:thing}(self):
+    pass
+endsnippet

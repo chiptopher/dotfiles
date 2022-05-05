@@ -1,0 +1,66 @@
+snippet tcls ""
+
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+public class `!p snip.rv = snip.basename` {
+
+    @Test
+    void test() {
+    }
+}
+endsnippet
+
+snippet cls ""
+public class `!p snip.rv = snip.basename` {
+
+}
+endsnippet
+
+snippet test
+@Test
+void ${1:Name}() throws Exception {
+     ${0}
+}
+endsnippet
+
+snippet acls ""
+public abstract class `!p snip.rv = snip.basename` {
+
+}
+endsnippet
+
+snippet con ""
+`!p snip.rv = snip.basename`() {
+}
+endsnippet
+
+snippet mock
+${1:Name} mock = mock( ${1:Name}.class);
+endsnippet
+
+snippet tr
+@Transactional
+endsnippet
+
+snippet pf
+private final 
+endsnippet
+
+snippet sout
+System.out.println(${1:Message});
+endsnippet
+
+snippet assertions
+import static org.assertj.core.api.Assertions.*;
+endsnippet
+
+snippet mockito
+import static org.mockito.Mockito.*;
+endsnippet
+
+snippet arr
+new ArrayList<>();
+endsnippet

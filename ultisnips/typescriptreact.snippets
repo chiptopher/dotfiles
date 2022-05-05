@@ -1,0 +1,75 @@
+snippet cm ""
+import React from "react";
+
+interface Props {
+}
+
+export const ${1:Name} = (props: Props) => {
+    return (
+        <div></div>
+    );
+};
+endsnippet
+
+snippet p "" i
+console.log(${1:Message})
+endsnippet
+
+snippet ' "" i
+&apos;
+endsnippet
+
+snippet n
+<${1:Name}></$1>
+endsnippet
+
+snippet cn "" i
+className="${1:Name}"
+endsnippet
+
+snippet sc ""
+const ${1:Name} = styled.${2:div}\`
+\`
+endsnippet
+
+snippet st ""
+const [${1:state}, set$1] = useState(${2:default})
+endsnippet
+
+snippet serverprops ""
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+}
+endsnippet
+
+snippet nextpage
+import React from 'react';
+
+import { GetServerSidePropsContext } from 'next';
+
+const ${1:Name}Page = () => {
+    return <div />;
+};
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+    return {
+        props: {},
+    };
+}
+
+export default $1Page;
+
+endsnippet
+
+snippet ext "" i
+<a href="${1:https://example.com}" target="_blank" rel="noreferrer"></a>
+endsnippet
+
+snippet it ""
+it("should ${1:Name}", async () => {
+});
+endsnippet
+
+snippet test ""
+test("${1:explanation}", async () => {
+});
+endsnippet

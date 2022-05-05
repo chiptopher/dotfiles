@@ -1,0 +1,33 @@
+snippet h
+#ifndef `!p snip.rv = snip.basename.upper()`_H
+#define `!p snip.rv = snip.basename.upper()`_H
+
+#endif // `!p snip.rv = snip.basename.upper()`_H
+endsnippet
+
+snippet ext
+extern "C" {
+}
+endsnippet
+
+snippet class
+class ${1:Name} {
+public:
+  $1();
+
+private:
+};
+endsnippet
+
+snippet test
+#include "gmock/gmock.h"
+#include "gtest/gtest.h"
+
+TEST(TestKey, constructor) {
+  ASSERT_EQ(123, 123);
+}
+endsnippet
+
+snippet int "" i
+#include <stdint.h>
+endsnippet

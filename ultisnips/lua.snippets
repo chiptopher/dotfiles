@@ -1,0 +1,16 @@
+snippet cls ""
+local classes = require 'classes'
+
+${1:Name} = classes.class()
+
+function $1:init()
+
+end
+
+return $1
+
+endsnippet
+
+snippet p
+print(${1:Message})
+endsnippet

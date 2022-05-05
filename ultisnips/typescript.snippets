@@ -1,0 +1,24 @@
+snippet styles ""
+import { createStyles, makeStyles } from "@material-ui/core";
+
+export const useStyles = makeStyles((theme) =>
+    createStyles({
+    })
+);
+endsnippet
+
+snippet p "" i
+console.log(${1:Message})
+endsnippet
+
+snippet it ""
+it("should ${1:Name}", async () => {
+});
+endsnippet
+
+snippet resolver ""
+import { GraphqlContext } from '../../typedefs/graphql-context';
+
+export async function ${1:Name}(_parent: any, args: any, context: GraphqlContext) {
+}
+endsnippet
