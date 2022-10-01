@@ -11,7 +11,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'schickling/vim-bufonly'
 Plug 'SirVer/ultisnips'
 Plug 'jparise/vim-graphql'
-Plug 'HendrikPetertje/vimify'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
