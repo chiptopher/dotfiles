@@ -4,11 +4,10 @@ import React from "react";
 interface Props {
 }
 
-export const ${1:Name} = (props: Props) => {
-    return (
-        <div></div>
-    );
+export const ${1:Name}: React.FunctionComponent<Props> = props => {
+    return <div></div>;
 };
+
 endsnippet
 
 snippet p "" i
@@ -17,6 +16,10 @@ endsnippet
 
 snippet ' "" i
 &apos;
+endsnippet
+
+snippet " "" i
+&quot;
 endsnippet
 
 snippet n
@@ -44,13 +47,15 @@ endsnippet
 snippet nextpage
 import React from 'react';
 
-import { GetServerSidePropsContext } from 'next';
+import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 
 const ${1:Name}Page = () => {
     return <div />;
 };
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps(
+    context: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<Props>> {
     return {
         props: {},
     };
@@ -73,3 +78,25 @@ snippet test ""
 test("${1:explanation}", async () => {
 });
 endsnippet
+
+snippet story ""
+import React from 'react';
+
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { Button } from '.';
+
+export default {
+    argTypes: {
+    },
+    component: ${1:Name},
+    title: "${2}/${1:Name}",
+} as ComponentMeta<typeof ${1:Name}>;
+
+const Template: ComponentStory<typeof ${1:Name}> = args => <${1:Name} {...args} />;
+
+export const Playground = Template.bind({});
+
+Playground.args = {};
+endsnippet
+
