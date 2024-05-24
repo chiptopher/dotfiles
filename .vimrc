@@ -17,6 +17,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prisma/vim-prisma'
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
+Plug 'vim-scripts/loremipsum'
+
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
   \ ]
@@ -73,9 +78,6 @@ noremap <leader>b :call CocActionAsync('jumpDefinition')<CR>
 noremap <leader><enter> <Plug>(coc-codeaction)
 nmap <leader>r <Plug>(coc-rename)
 nmap <leader>rf <Plug>(coc-references)
-
-autocmd FileType c map <buffer> <leader>l :ClangFormat<cr>
-autocmd FileType cpp map <buffer> <leader>l :ClangFormat<cr>
 
 "================ Cursor Settings ================
 let &t_SI.="\e[5 q" "SI = INSERT mode
