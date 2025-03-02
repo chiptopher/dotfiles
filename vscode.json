@@ -1,0 +1,45 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "t"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.toggleTerminal"
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "b"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.goToDeclaration"
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "f"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen"
+                }
+            ]
+        },
+        {
+            "before": ["<leader>", "<cr>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.quickFix"
+                }
+            ]
+        }
+    ],
+    "vim.leader": "\\",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    }
+}
