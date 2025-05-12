@@ -1,5 +1,11 @@
 {
-  "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "prettier.documentSelectors": ["**/*.prisma"]
+    "eslint.autoFixOnSave": true,
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
+    "prettier.documentSelectors": ["**/*.prisma"],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ]
 }
