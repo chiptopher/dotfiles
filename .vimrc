@@ -9,7 +9,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'schickling/vim-bufonly'
-Plug 'SirVer/ultisnips'
 Plug 'jparise/vim-graphql'
 
 Plug 'pangloss/vim-javascript'
@@ -39,12 +38,6 @@ endif
 Plug 'rhysd/vim-clang-format'
 
 call plug#end()
-"
-"============= Snippets Configuration ==============
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-set runtimepath+=~/.vim/my-snippets/
 
 autocmd BufNewFile,BufRead *.gs set ft=javascript
 "============= Plugin Configuration ==============
