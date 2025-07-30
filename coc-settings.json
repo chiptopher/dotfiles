@@ -1,14 +1,18 @@
 {
-    "eslint.autoFixOnSave": true,
-    "coc.preferences.formatOnSaveFiletypes": ["*"],
-    "prettier.documentSelectors": ["**/*.prisma"],
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
+  "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "editor.formatOnSave": false,
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+  "tsserver.formatOnType": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
